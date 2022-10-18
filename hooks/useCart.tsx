@@ -1,32 +1,35 @@
-import { IProduct } from '../adapter/product'
-import { useProducts } from '../context/CartContext'
-export const useCart = () => {
-    const { cart, setCart } = useProducts()
+import { useAppSelector, useAppDispatch } from '../provider/hooks'
+import { addNew, removeItem, selectCart, selectCartById } from '../provider/cartSlice'
+import { IProduct } from '../adapters/product'
 
-    const addToCart = (product: IProduct) => {
-        if (!cart.some(s => s.id == product.id))
-            setCart((p) => p.concat(product))
-    }
-    const removeFromCart = (product: IProduct) => {
-        setCart(s => s.reduce((acc, cur) => {
-            if (cur.id !== product.id)
-                acc.push(cur)
-            return acc
-        }, []))
-    }
-    const { currencyCode, totalProducts, countProducts } = cart.reduce((obj, cur) => {
-        obj.currencyCode = cur.price.currencyCode
-        obj.totalProducts += cur.price.amount
-        obj.countProducts += 1
-        return obj
-    }, { currencyCode: '', totalProducts: 0, countProducts: 0 })
+/**
+ * Devuelve los métodos para administrar el estado del carrito de compras
+ * @returns 
+ */
+
+export const useCart=()=>{
+    const dispatch = useAppDispatch()
     
+    const addToCart=(product:IProduct)=>{
+        dispatch(addNew(product))
+    }
+
+    const removeFromCart=(product:IProduct)=>{
+        dispatch(removeItem(product))
+    }
+
+    const getCart = ()=>{
+        return useAppSelector(selectCart)
+    }
+
+    const getItemFromCart = (id: number) =>{ 
+        return useAppSelector(s => selectCartById(s, id))
+    }
+
     return {
-        cart,
-        currencyCode,
-        totalProducts,
-        countProducts,
+        getItemFromCart,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        getCart
     }
 }

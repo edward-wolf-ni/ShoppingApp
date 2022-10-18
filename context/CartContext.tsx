@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { IProduct } from '../adapter/product'
+import { IProduct } from '../adapters/product'
 
 export type CartContextType = {
   cart: IProduct[]

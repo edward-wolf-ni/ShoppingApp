@@ -1,15 +1,18 @@
 import '../styles/globals.css'
+
+import { Provider } from 'react-redux'
 import type { AppProps } from 'next/app'
+
+import {store} from '../provider/store'
 import Layout from '../components/Layout'
-import { CartProvider } from '../context/CartContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <CartProvider>
+    <Provider store={store}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </CartProvider>
+    </Provider>
   )
 }
 

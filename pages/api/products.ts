@@ -1,16 +1,11 @@
 import data from './products.json'
 
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import {IProduct} from '../../adapter/product'
+import {IProduct} from '../../adapters/product'
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  name: string
-}
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse//<Data>
+  res: NextApiResponse<IProduct[]>
 ) {
    res.status(200).json(getProducts())
 }
