@@ -18,6 +18,8 @@ export default function Card({ product, children }: Props) {
                     layout="responsive"
                     objectFit='cover'
                     priority
+                    placeholder='blur'
+                    blurDataURL='./vercel.svg'
                 />
             </div>
             <div>
