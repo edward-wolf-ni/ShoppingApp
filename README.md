@@ -5,7 +5,7 @@
 ### - Opción para agregar productos al carrito.
 ### - Página para listar los detalles de productos agregados al carrito.
 ### - Visualización de cantidad y precio total de los productos agregados al carrito.
-### - Eliminación de producto del carrito.
+### - Eliminación de productos del carrito.
 ### - Navegación entre las páginas de la aplicación  
 
 ## Instalación
@@ -28,6 +28,7 @@ npm run dev
 
 
 ## Tecnologías utilizadas
+
 ### [Next Js](https://nextjs.org/)
 ### [TailwindCss](https://tailwindcss.com/)
 ### [React](https://reactjs.org/)
@@ -37,7 +38,9 @@ npm run dev
 ### [~~Api react context~~](https://es.reactjs.org/docs/context.html)
 
 ## Nota:
+
 ### Los selectores de clases que fueron definidos se encuentran en *styles\global.css*
 
-## Captura
-![Captura de la pantalla de inicio](./public/Captura.png "Página principal")
+## Ejemplo de la aplicación
+
+<img src="./public/Captura.PNG" width="100%" height = "100%" title="Ejemplo de la aplicación" />
