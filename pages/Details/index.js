@@ -7,7 +7,7 @@ export default function DetailsPage() {
     const cart = useCart().getCart()
 
     if (cart.length === 0)
-        return <h2 className='font-bold text-center text-5xl text-violet-400 py-[30px]'>your cart is empty</h2>
+        return <h2 className='title-empty-cart'>your cart is empty</h2>
 
     const { currencyCode, totalProducts, countProducts } = cart.reduce((obj, cur) => {
         obj.currencyCode = cur.price.currencyCode
@@ -19,7 +19,7 @@ export default function DetailsPage() {
     return (
         <div className='sm:flex justify-between gap-5'>
             <div className='basis-2/4'>
-                <div className='grid grid-cols-2 gap-x-2 border border-8 p-5 bg-zinc-50'>
+                <div className='section'>
                     <strong>Products: &nbsp;</strong>
                     <strong className='text-right'>{countProducts}</strong>
                     <strong>Total: &nbsp;</strong>

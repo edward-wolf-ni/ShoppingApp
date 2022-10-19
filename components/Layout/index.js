@@ -13,7 +13,7 @@ export default function Layout({ children }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            <main className="pt-[80px] px-[5%] w-full m-auto">
+            <main className="main">
                 {children}
             </main>
             <Footer />
@@ -24,7 +24,7 @@ export default function Layout({ children }) {
 const Header = () => {
     const cart = useCart().getCart()
     return (
-        <header className="menu fixed w-screen font-bold px-10 py-4 z-10 ">
+        <header className="menu">
             <nav>
                 <ul className="flex justify-between">
                     <li className='underline-offset-4 hover:underline'>
